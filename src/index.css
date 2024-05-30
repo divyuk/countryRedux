@@ -1,0 +1,18 @@
+* {
+  margin: 10px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+input {
+  background-color: antiquewhite;
+  padding: 5px;
+}
+
+button {
+  background-color: rgb(144, 227, 227);
+  padding: 8px;
+}
+button:hover {
+  background-color: rgb(43, 247, 247);
+  cursor: pointer;
+}
