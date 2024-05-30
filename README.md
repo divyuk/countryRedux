@@ -1,30 +1,20 @@
-# React + TypeScript + Vite
+## Country Redux
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The main branch has the app build by using general state management principles.
 
-Currently, two official plugins are available:
+The redux branch has the same app build using Redux Old.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Redux
 
-## Expanding the ESLint configuration
+Redux has three main components
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Store : which has all the data
+2. Reducer : which will mutate the data - tell how to do
+3. Actions : which will tell what to do.
 
-- Configure the top-level `parserOptions` property like this:
+Genreal design thinking:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Identify what state exists in the app.
+2. Identify how state changes over time.
+3. Group together common piece of state.
+4. Create a slice for each group.
