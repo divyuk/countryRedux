@@ -1,30 +1,24 @@
-# React + TypeScript + Vite
+Country Redux
+The main branch has the app build by using general state management principles.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The redux branch has the same app build using Redux Old.
 
-Currently, two official plugins are available:
+Redux
+Redux has three main components
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Store : which has all the data
+Reducer : which will mutate the data - tell how to do
+Actions : which will tell what to do.
 
-## Expanding the ESLint configuration
+Genreal design thinking:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Identify what state exists in the app.
+Identify how state changes over time.
+Group together common piece of state.
+Create a slice for each group.
 
-- Configure the top-level `parserOptions` property like this:
+We start with the state.
+state : countryList,country
+Actions : COUNTRIES_RECIEVED, SET_COUNTRY
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Will create the state from the reducers.

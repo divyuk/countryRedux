@@ -1,23 +1,24 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import TypeAhead from "./TypeAhead";
+import { useDispatch, useSelector } from "react-redux";
+import { AppState } from "../store/reducers/rootReducer";
+import {
+  countriesRecieved,
+  setCountry,
+} from "../store/actions/countriesAction";
 
 export default function FormPage() {
-  const [country, setCountry] = useState("");
-  const [countries, setCountries] = useState([]);
+  const { countries, country } = useSelector(
+    (state: AppState) => state.countryStore
+  );
 
+  const dispatch = useDispatch();
   useEffect(() => {
-    async function getData() {
-      const url = `/api/countries.json`;
-      const response = await axios.get(url);
-      const data = response.data;
-      setCountries(data);
-    }
-    getData();
+    dispatch(countriesRecieved());
   }, []);
 
   const handleChange = (choice: string) => {
-    setCountry(choice);
+    dispatch(setCountry(choice));
   };
 
   return (
